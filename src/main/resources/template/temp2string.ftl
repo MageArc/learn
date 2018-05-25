@@ -12,7 +12,7 @@
                 <HD_AppId>${appId}</HD_AppId>
                 <HD_Adrr>${addr!"地址没有!"}</HD_Adrr>
                 <#if tel??>
-                  <HD_Tel>${tel}</HD_Tel>
+                <HD_Tel>${tel}</HD_Tel>
                 </#if>
             </requestHeader>
             <requestBody>
