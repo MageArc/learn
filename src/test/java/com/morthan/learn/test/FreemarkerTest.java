@@ -1,4 +1,4 @@
-package com.morthan.learn;
+package com.morthan.learn.test;
 
 import com.morthan.learn.util.FreemarkerUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class FreemarkerTest {
         //获取报文String
         String ftlString = "";
         try {
-            ftlString = FreemarkerUtils.getFtlString("temp2string.ftl", "/template", map);
+            ftlString = FreemarkerUtils.getFtlString("temp2string.ftl", "/templates", map);
         } catch (Exception e) {
             e.printStackTrace();
         }

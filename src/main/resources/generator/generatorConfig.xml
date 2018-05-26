@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ~ The MIT License (MIT) ~ ~ Copyright (c) 2014-2016 abel533@gmail.com
+	~ ~ Permission is hereby granted, free of charge, to any person obtaining
+	a copy ~ of this software and associated documentation files (the "Software"),
+	to deal ~ in the Software without restriction, including without limitation
+	the rights ~ to use, copy, modify, merge, publish, distribute, sublicense,
+	and/or sell ~ copies of the Software, and to permit persons to whom the Software
+	is ~ furnished to do so, subject to the following conditions: ~ ~ The above
+	copyright notice and this permission notice shall be included in ~ all copies
+	or substantial portions of the Software. ~ ~ THE SOFTWARE IS PROVIDED "AS
+	IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR ~ IMPLIED, INCLUDING BUT NOT
+	LIMITED TO THE WARRANTIES OF MERCHANTABILITY, ~ FITNESS FOR A PARTICULAR
+	PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE ~ AUTHORS OR COPYRIGHT
+	HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER ~ LIABILITY, WHETHER IN
+	AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, ~ OUT OF OR IN CONNECTION
+	WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN ~ THE SOFTWARE. -->
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 指定数据库驱动路径 -->
+    <classPathEntry
+            location="E:\codesofts\IDEA-tools\repository\mysql\mysql-connector-java\6.0.3\mysql-connector-java-6.0.3.jar"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3">
+        <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <!-- 这里的type里写的是你的实现类的类全路径 -->
+        <commentGenerator type="com.morthan.learn.Generator.MyCommentGenerator">
+        </commentGenerator>
+
+
+        <!-- 指定数据库环境 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/mysql/boot_test"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!-- 生成生成Model类存放位置DTO -->
+        <javaModelGenerator targetPackage="com.morthan.learn.bean.dto"  targetProject="E:/ProgramFiles/GitRepo/ifsp-paypagyunpayqrc/src/main/java">
+              <!--<property name="rootClass" value="com.ruim.ifsp.paypagydatabase.bean.dto.TpamPagyDbDataAbstractTxnInfo"/>-->
+            <!--<property name="rootClass" value="com.ruim.ifsp.paypagydatabase.bean.dto.TpamPagyDbDataAbstractTxnInfo"/>配置继承基类-->
+            <property name="enableSubPackages" value="true"/>    <!-- 根据catalog和 schema来生成子包 -->
+            <property name="trimStrings" value="true"/>    <!-- 对数据库查询结果进行trim -->
+        </javaModelGenerator>
+        <!-- 生成 映射的XML文件存放位置-->
+        <sqlMapGenerator targetPackage="com.morthan.learn.bean.mapping"
+                         targetProject="G:\GitHub\learn\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成和MAPPER  -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.morthan.learn.bean.mapper"
+                             targetProject="G:\GitHub\learn\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+       <!-- <table schema="dmc" tableName="vehicle_list"> //tableName：指定要生成的表名，可以使用SQL通配符匹配多个表。生成所有的表可以这样设置<table tableName="%" />，可以指定的表明生成指定的实体类和映射
+        </table>-->
+ <!-- 通道商户信息信息表-->
+        <!--5，enableInsert（默认true）：指定是否生成insert语句；
+        6，enableSelectByPrimaryKey（默认true）：指定是否生成按照主键查询对象的语句（就是getById或get）；
+        7，enableSelectByExample（默认true）：MyBatis3Simple为false，指定是否生成动态查询语句；
+        8，enableUpdateByPrimaryKey（默认true）：指定是否生成按照主键修改对象的语句（即update)；
+        9，enableDeleteByPrimaryKey（默认true）：指定是否生成按照主键删除对象的语句（即delete）；
+        10，enableDeleteByExample（默认true）：MyBatis3Simple为false，指定是否生成动态删除语句；
+        11，enableCountByExample（默认true）：MyBatis3Simple为false，指定是否生成动态查询总条数语句（用于分页的总条数查询）；
+        12，enableUpdateByExample（默认true）：MyBatis3Simple为false，指定是否生成动态修改语句（只修改对象中不为空的属性）；-->
+ <!--<table tableName="TPAM_CUNIONPAY_QRC_TXN_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+		<table tableName="sdf"/>
+    </context>
+</generatorConfiguration>
